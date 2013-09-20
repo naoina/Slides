@@ -455,6 +455,7 @@
         if (next === this.data.total) {
           next = 0;
         }
+        $.data(this, "current", next);
         this._setActive(next);
         slidesControl = $(".slidesjs-control", $element);
         if (number > -1) {
@@ -515,7 +516,7 @@
               display: "none",
               left: 0,
               zIndex: 0
-            }, $.data(_this, "current", next), $.data(_this, "animating", false), _this.options.callback.complete(next + 1));
+            }, $.data(_this, "animating", false), _this.options.callback.complete(next + 1));
           }));
         }
       }
@@ -542,6 +543,7 @@
         if (next === this.data.total) {
           next = 0;
         }
+        $.data(this, "current", next);
         this._setActive(next);
         slidesControl = $(".slidesjs-control", $element);
         slidesControl.children(":eq(" + next + ")").css({
@@ -568,7 +570,6 @@
               });
             }));
             $.data(_this, "animating", false);
-            $.data(_this, "current", next);
             return _this.options.callback.complete(next + 1);
           }));
         }

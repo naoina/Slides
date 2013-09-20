@@ -593,6 +593,9 @@
       # Loop from last to first slide
       next = 0 if next is @data.total
 
+      # Set the new slide to the current
+      $.data this, "current", next
+
       # Set next slide pagination item to active
       @_setActive(next)
 
@@ -674,9 +677,6 @@
             left: 0
             zIndex: 0
 
-            # Set the new slide to the current
-            $.data this, "current", next
-
             # Set animating to false
             $.data this, "animating", false
 
@@ -714,6 +714,9 @@
 
       # Loop from last to first slide
       next = 0 if next is @data.total
+
+      # Set the new slide to the current
+      $.data this, "current", next
 
       # Set next slide pagination item to active
       @_setActive next
@@ -767,9 +770,6 @@
 
           # Set animating to false
           $.data this, "animating", false
-
-          # Set the new slide to the current
-          $.data this, "current", next
 
           # End of the animation, call complete callback
           @options.callback.complete(next + 1)
